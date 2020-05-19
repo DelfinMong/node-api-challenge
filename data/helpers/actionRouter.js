@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
   router.get('/:id',(req, res) => {
     const { id } = req.params
-          Actions.get(id)
+          Action.get(id)
              .then(action => {
                res.status(200).json(action)
              .catch( err => {
@@ -43,7 +43,7 @@ router.post('/',(req,res) => {
   //  }
 
    Action.insert(body) 
-           body ? res.status(201).json({msg:" new post",post})
+           body ? res.status(201).json({msg:" new post",body})
                 : res.status(400).json({ err:"pls include information"})
 
 })

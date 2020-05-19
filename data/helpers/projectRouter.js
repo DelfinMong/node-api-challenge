@@ -77,11 +77,14 @@ router.get('/:id/actions',(req, res) => {
                         project_id,
                     }
     
-                    Actions.insert(newAction)
+                    Action.insert(newAction)
                             .then(action => {
                                  res.status(201).json({ success: action })
                     })
                 }
+            })
+            .catch( err => {
+                res.status(500).json(err)
             })
     })
 
